@@ -35,7 +35,6 @@ plt.title('EM')
 plt.show()
 
 
-
 from sklearn.datasets import load_iris
 from sklearn.cluster import KMeans
 from sklearn.mixture import GaussianMixture

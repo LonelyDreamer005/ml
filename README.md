@@ -8,10 +8,15 @@
 from sklearn.datasets import load_iris
 
 from sklearn.naive_bayes import GaussianNB
+
 from sklearn.tree import DecisionTreeClassifier
+
 from sklearn.neighbors import KNeighborsClassifier
+
 from sklearn.svm import SVC
+
 from sklearn.linear_model import Perceptron
 
 from sklearn.cluster import KMeans
+
 from sklearn.mixture import GaussianMixture

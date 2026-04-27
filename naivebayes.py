@@ -1,27 +1,19 @@
-data = pd.read_csv('/content/sample_data/Iris1.csv')
-data.columns
-
-import pandas as pd
 import numpy as np
-from sklearn.metrics import accuracy_score
+import pandas as pd
+from sklearn.metrics import accuracy_score 
 from sklearn.naive_bayes import GaussianNB
-from sklearn.preprocessing import LabelEncoder
+#from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_iris
 
-data = pd.read_csv('/content/sample_data/Iris1.csv')
+data = load_iris()
+x = data.data
+y = data.target 
 
-x = data[['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm']]
-y = data['Species']
-
-le = LabelEncoder()
-y = le.fit_transform(y)
-
-x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.3, random_state= 5)
-
+x_train, x_test, y_train, y_test = train_test_split(x,y, test_size=0.3, random_state=42)
 model = GaussianNB()
-model.fit(x_train, y_train)
+model.fit(x_train,y_train)
 
 y_pred = model.predict(x_test)
-
-print(accuracy_score(y_test, y_pred))
-
+acc = accuracy_score(y_test, y_pred)
+print("Accuracy: ", acc)
